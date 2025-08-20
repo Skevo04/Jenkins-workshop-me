@@ -11,7 +11,7 @@ pipeline {
 
     environment {
         REGISTRY = "ghcr.io"
-        IMAGE_NAME = "${REGISTRY}/vbota1/jenkins-workshop-app".toLowerCase()
+        IMAGE_NAME = "${REGISTRY}/Skevo04/Jenkins-workshop-me".toLowerCase()
     }
 
     stages {
