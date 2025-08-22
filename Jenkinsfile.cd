@@ -6,7 +6,7 @@ pipeline {
     }
 
     parameters {
-        string(name: 'STAGING_SERVER_IP', defaultValue: '172.26.160.146', description: 'IP address of the staging server')
+        string(name: 'STAGING_SERVER_IP', defaultValue: '192.168.64.5', description: 'IP address of the staging server')
     }
 
     environment {
