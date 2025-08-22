@@ -11,7 +11,7 @@ pipeline {
 
     environment {
         REGISTRY = "ghcr.io"
-        IMAGE_NAME = "${REGISTRY}/Skevo04/Jenkins-workshop-me".toLowerCase()
+        IMAGE_NAME = "${REGISTRY}/Skevo04/jenkins-workshop-app".toLowerCase()
     }
 
     stages {
@@ -63,7 +63,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'github-packages-pat', usernameVariable: 'GITHUB_USER', passwordVariable: 'GITHUB_PAT')]) {
                     sshagent(['staging-server-credentials']) {
                         sh """
-                            ssh -o StrictHostKeyChecking=no devop@${params.STAGING_SERVER_IP} \\
+                            ssh -o StrictHostKeyChecking=no ubuntu@${params.STAGING_SERVER_IP} \\
                             "echo ${GITHUB_PAT} | docker login ${REGISTRY} -u ${GITHUB_USER} --password-stdin && \\
                             docker pull ${IMAGE_NAME}:latest && \\
                             (docker stop web || true) && \\
